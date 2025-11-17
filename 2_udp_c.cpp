@@ -31,6 +31,7 @@ int main() {
     // defining the fields 
     sin.sin_family = AF_INET;
     sin.sin_addr.s_addr = inet_addr(ip_address);
+    // htons- converting the humber in host to the number in the network
     sin.sin_port = htons(port_no);
 
     // creating char array with the message sent to the server

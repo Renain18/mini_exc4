@@ -28,11 +28,17 @@ while True:
     # saving the data in 1024 characters at most.
     data = client_socket.recv(1024)
     # decode data as long as its version is not utf8.
+    # I changed the output of the server, echoing the input recieved, and then
+    # asking it a question and adding cool! 
     while not data.decode('utf-8') == '':
+        text = data.decode('utf-8')                 
         # decode data and print it
-        print('Received: ', data.decode('utf-8'))
+        print('Received: ', text)
         #echo the data back to the client
-        client_socket.send(data.upper())
+        #editing server answer
+        answer = text.upper() + "?\n" + "Cool!\n"
+        print(answer)
+        client_socket.send(answer.encode('utf-8'))
         #recieve the next data from the client
         data = client_socket.recv(1024)
 

@@ -37,7 +37,7 @@ int main() {
 // creating new struct where the new message info will be saved
     struct sockaddr_in from;
     unsigned int from_len = sizeof(struct sockaddr_in);
-// saving buffer variablr to save the info recieved to echo it back
+// saving buffer variable to save the info recieved to echo it back
     char buffer[4096];
 // reading the information from the client
     int bytes = recvfrom(sock, buffer, sizeof(buffer), 0, (struct sockaddr *) &from, &from_len);
